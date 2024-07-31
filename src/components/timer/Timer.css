@@ -1,0 +1,71 @@
+.timer {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  margin: 20px;
+}
+
+.timer-circle {
+  width: 150px;
+  height: 150px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  position: relative;
+}
+
+.timer-content {
+  text-align: center;
+  color: #fff;
+  position: absolute;
+}
+
+.tiemr-title {
+  font-size: 1.2rem;
+  margin-bottom: 10px;
+}
+
+.timer-time {
+  font-size: 2rem;
+}
+
+.timer-controls {
+  display: flex;
+  gap: 10px;
+  margin-top: 10px;
+}
+
+.timer-controls button {
+  padding: 5px 10px;
+  cursor: pointer;
+}
+
+.timer-dashboard {
+  display: flex;
+  background-color: rgba(0, 0, 0, 0.905);
+  flex-direction: column;
+  height: 100%;
+  padding: 5em;
+  align-items: center;
+}
+
+.timer-dashboard-header {
+  margin-bottom: 20px;
+}
+
+.timer-dashboard-content {
+  display: flex;
+  justify-content: center;
+  flex-wrap: wrap;
+  gap: 20px;
+}
+
+circle {
+  transition: stroke-dasharray 1s linear;
+}
+
+.modal {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
