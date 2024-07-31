@@ -18,19 +18,47 @@ import MemoBoard from "./components/memo/MemoBoard";
 function App() {
   const [isTransitioning, setIsTransitioning] = useState(false);
   const [sidebarWidth, setSidebarWidth] = useState(300);
-  const isResizing = useRef(false);
+  const [isResizing, setIsResizing] = useState(false);
+  const [initialX, setInitialX] = useState(0);
 
-  const handleMouseDown = (e) => {
-    isResizing.current = true;
+  // const handleMouseDown = (e) => {
+  //   isResizing.current = true;
+  // };
+
+  // const handleMouseMove = (e) => {
+  //   if (!isResizing.current) return;
+  //   setSidebarWidth(e.clientX);
+  // };
+
+  // const handleMouseUp = () => {
+  //   isResizing.current = false;
+  // };
+
+  const startResizing = (clientX) => {
+    setIsResizing(true);
+    setInitialX(clientX);
   };
 
   const handleMouseMove = (e) => {
-    if (!isResizing.current) return;
-    setSidebarWidth(e.clientX);
+    if (isResizing) {
+      setSidebarWidth(e.clientX);
+      setInitialX(e.clientX);
+    }
   };
 
   const handleMouseUp = () => {
-    isResizing.current = false;
+    setIsResizing(false);
+  };
+
+  const handleTouchMove = (e) => {
+    if (isResizing) {
+      setSidebarWidth(e.touches[0].clientX);
+      setInitialX(e.touches[0].clientX);
+    }
+  };
+
+  const handleTouchEnd = () => {
+    setIsResizing(false);
   };
 
   const handleTransition = () => {
@@ -43,9 +71,15 @@ function App() {
         className="app"
         onMouseMove={handleMouseMove}
         onMouseUp={handleMouseUp}
+        onTouchMove={handleTouchMove}
+        onTouchEnd={handleTouchEnd}
       >
         <div className="controls" style={{ width: sidebarWidth }}>
-          <div className="resize-handle" onMouseDown={handleMouseDown}></div>
+          <div
+            className="resize-handle"
+            onMouseDown={(e) => startResizing(e.clientX)}
+            onTouchStart={(e) => startResizing(e.touches[0].clientX)}
+          ></div>
         </div>
 
         {/* <HashRouter> */}
