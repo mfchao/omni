@@ -18,47 +18,43 @@ import MemoBoard from "./components/memo/MemoBoard";
 function App() {
   const [isTransitioning, setIsTransitioning] = useState(false);
   const [sidebarWidth, setSidebarWidth] = useState(300);
+  const [topbarHeight, setTopbarHeight] = useState(150);
   const [isResizing, setIsResizing] = useState(false);
-  const [initialX, setInitialX] = useState(0);
+  const [resizingDirection, setResizingDirection] = useState(null);
 
-  // const handleMouseDown = (e) => {
-  //   isResizing.current = true;
-  // };
-
-  // const handleMouseMove = (e) => {
-  //   if (!isResizing.current) return;
-  //   setSidebarWidth(e.clientX);
-  // };
-
-  // const handleMouseUp = () => {
-  //   isResizing.current = false;
-  // };
-
-  const startResizing = (clientX) => {
+  const startResizing = (clientX, clientY, direction) => {
     setIsResizing(true);
-    setInitialX(clientX);
+    setResizingDirection(direction);
   };
 
   const handleMouseMove = (e) => {
     if (isResizing) {
-      setSidebarWidth(e.clientX);
-      setInitialX(e.clientX);
+      if (resizingDirection === "horizontal") {
+        setSidebarWidth(e.clientX);
+      } else if (resizingDirection === "vertical") {
+        setTopbarHeight(e.clientY);
+      }
     }
   };
 
   const handleMouseUp = () => {
     setIsResizing(false);
+    setResizingDirection(null);
   };
 
   const handleTouchMove = (e) => {
     if (isResizing) {
-      setSidebarWidth(e.touches[0].clientX);
-      setInitialX(e.touches[0].clientX);
+      if (resizingDirection === "horizontal") {
+        setSidebarWidth(e.touches[0].clientX);
+      } else if (resizingDirection === "vertical") {
+        setTopbarHeight(e.touches[0].clientY);
+      }
     }
   };
 
   const handleTouchEnd = () => {
     setIsResizing(false);
+    setResizingDirection(null);
   };
 
   const handleTransition = () => {
@@ -77,8 +73,30 @@ function App() {
         <div className="controls" style={{ width: sidebarWidth }}>
           <div
             className="resize-handle"
-            onMouseDown={(e) => startResizing(e.clientX)}
-            onTouchStart={(e) => startResizing(e.touches[0].clientX)}
+            onMouseDown={(e) =>
+              startResizing(e.clientX, e.clientY, "horizontal")
+            }
+            onTouchStart={(e) =>
+              startResizing(
+                e.touches[0].clientX,
+                e.touches[0].clientY,
+                "horizontal"
+              )
+            }
+          ></div>
+        </div>
+
+        <div className="top-bar" style={{ height: topbarHeight }}>
+          <div
+            className="resize-handle-top"
+            onMouseDown={(e) => startResizing(e.clientX, e.clientY, "vertical")}
+            onTouchStart={(e) =>
+              startResizing(
+                e.touches[0].clientX,
+                e.touches[0].clientY,
+                "vertical"
+              )
+            }
           ></div>
         </div>
 
