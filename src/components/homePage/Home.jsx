@@ -127,7 +127,7 @@ const HomePage = ({ isTransitioning }) => {
   }
 
   if (navigateToChicken) {
-    return <Navigate to="/recipe/Creamy%20Cajun%20Chicken%20Pasta" />;
+    return <Navigate to="/meal-plan/recipe/Creamy%20Cajun%20Chicken%20Pasta" />;
   }
   
 
