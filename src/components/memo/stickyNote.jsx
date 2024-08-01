@@ -16,22 +16,20 @@ function StickyNote({ date, from, content, timeAgo, isDrawing }) {
   };
 
   return (
-    <div>
-      <div className="sticky-note">
-        <h2>{formatDate(date)}</h2>
-        <p>
-          From <strong>{from}</strong> | {timeAgo}
-        </p>
-        {isDrawing ? (
-          <img
-            src={content}
-            alt="drawing"
-            style={{ width: "100%", height: "auto" }}
-          />
-        ) : (
-          <p className="memo-text">{content}</p>
-        )}
-      </div>
+    <div className="sticky-note">
+      <h2>{formatDate(date)}</h2>
+      <p>
+        From <strong>{from}</strong> | {timeAgo}
+      </p>
+      {isDrawing ? (
+        <img
+          src={content}
+          alt="drawing"
+          style={{ width: "200%", height: "100%" }}
+        />
+      ) : (
+        <p className="memo-text">{content}</p>
+      )}
     </div>
   );
 }

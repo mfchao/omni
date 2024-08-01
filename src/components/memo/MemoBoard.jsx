@@ -42,12 +42,14 @@ function MemoBoard() {
   };
 
   const handleAddTextNote = (date, from, content) => {
-    setNotes([{ date, from, content, isDrawing: false }, ...notes]);
+    const timeAgo = calculateTimeAgo(date);
+    setNotes([{ date, from, content, isDrawing: false, timeAgo }, ...notes]);
     handleCloseModal();
   };
 
   const handleAddDrawingNote = (date, from, content) => {
-    setNotes([{ date, from, content, isDrawing: true }, ...notes]);
+    const timeAgo = calculateTimeAgo(date);
+    setNotes([{ date, from, content, isDrawing: true, timeAgo }, ...notes]);
     handleCloseModal();
   };
 
@@ -66,13 +68,30 @@ function MemoBoard() {
   return (
     <div className="memo">
       <h1>Memos</h1>
-      <button onClick={() => setIsModalOpen(true)}>+</button>
+      <button
+        onClick={() => setIsModalOpen(!isModalOpen)}
+        className={`add-button ${isModalOpen ? "rotate" : ""}`}
+      >
+        +
+      </button>
       {isModalOpen && (
-        <div>
-          <button onClick={() => handleNoteTypeSelection("text")}>Text</button>
-          <button onClick={() => handleNoteTypeSelection("drawing")}>
-            Drawing
-          </button>
+        <div className="modal-overlay" onClick={() => setIsModalOpen(false)}>
+          <div className="modal-buttons">
+            <button onClick={() => handleNoteTypeSelection("text")}>
+              <img
+                src="/nav-icons/mic.svg"
+                alt="speech"
+                className="icon-btn-audio"
+              />
+            </button>
+            <button onClick={() => handleNoteTypeSelection("drawing")}>
+              <img
+                src="/nav-icons/pencil.svg"
+                alt="speech"
+                className="icon-btn-pencil"
+              />
+            </button>
+          </div>
         </div>
       )}
       {isCanvasVisible && (
