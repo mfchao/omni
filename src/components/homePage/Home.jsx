@@ -37,7 +37,12 @@ const apps = [
 const HomePage = ({ isTransitioning }) => {
   const { transcript, resetTranscript } = useSpeechRecognition();
   const [navigateToFridge, setNavigateToFridge] = useState(false);
+  const [navigateToTimer, setNavigateToTimer] = useState(false);
   const [navigateToMealPlanner, setNavigateToMealPlanner] = useState(false);
+  const [navigateToMemo, setNavigateToMemo] = useState(false);
+  const [navigateToCalendar, setNavigateToCalendar] = useState(false);
+
+
 
   useEffect(() => {
     SpeechRecognition.startListening({ continuous: true });
@@ -66,12 +71,49 @@ const HomePage = ({ isTransitioning }) => {
       setNavigateToMealPlanner(true);
       resetTranscript();
     }
+
+    // timer
+    if (
+      transcript.toLowerCase().includes("timer")
+    ) {
+      setNavigateToTimer(true);
+      resetTranscript();
+    }
+
+    // Memo
+    if (
+      transcript.toLowerCase().includes("memo")
+    ) {
+      setNavigateToMemo(true);
+      resetTranscript();
+    }
+
+    // Calendar
+    if (
+      transcript.toLowerCase().includes("events")
+    ) {
+      setNavigateToCalendar(true);
+      resetTranscript();
+    }
+
+
+
   }, [transcript, resetTranscript]);
   if (navigateToFridge) {
     return <Navigate to="/fridge-contents" />;
   }
   if (navigateToMealPlanner) {
     return <Navigate to="/meal-plan" />;
+  }
+  if (navigateToTimer) {
+    return <Navigate to="/timer" />;
+  }
+  if (navigateToMemo) {
+    return <Navigate to="/memos" />;
+  }
+
+  if (navigateToCalendar) {
+    return <Navigate to="/calendar" />;
   }
 
   return (
