@@ -15,6 +15,7 @@ import Recipes from "./components/mealPlan/recipes";
 import TimerDashboard from "./components/timer/TimerDashboard";
 import MemoBoard from "./components/memo/MemoBoard";
 import Calendar from "./components/calendar/Calendar";
+import RecipesPage from "./components/fridgeContents/RecipesPage";
 
 function App() {
   const [isTransitioning, setIsTransitioning] = useState(false);
@@ -123,6 +124,7 @@ function App() {
               <Route path="/timer" element={<TimerDashboard />} />
               <Route path="/memos" element={<MemoBoard />} />
               <Route path="/calendar" element={<Calendar />} />
+              <Route path="/recipes" element={<RecipesPage />} />
             </Routes>
           </div>
         </div>

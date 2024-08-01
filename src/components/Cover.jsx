@@ -46,7 +46,11 @@ const Cover = ({ onTransition }) => {
             <div className="title">Weather</div>
           </div>
           <div className="content">
-            <img src="/images/weather/weather.png" alt="weather" />
+            <img
+              src="/images/weather/weather.png"
+              alt="weather"
+              className="cover-weather"
+            />
             <div className="cover-temp">70°</div>
             <div className="cover-desc">Partly Sunny</div>
             <div className="cover-location">San Francisco</div>
