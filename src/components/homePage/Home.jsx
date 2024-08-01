@@ -41,6 +41,8 @@ const HomePage = ({ isTransitioning }) => {
   const [navigateToMealPlanner, setNavigateToMealPlanner] = useState(false);
   const [navigateToMemo, setNavigateToMemo] = useState(false);
   const [navigateToCalendar, setNavigateToCalendar] = useState(false);
+  const [navigateToChicken, setNavigateToChicken] = useState(false);
+
 
 
 
@@ -66,9 +68,17 @@ const HomePage = ({ isTransitioning }) => {
     // meal planner
     if (
       transcript.toLowerCase().includes("recipes") ||
-      transcript.toLowerCase().includes("what can I make with chicken")
+      transcript.toLowerCase().includes("chicken")
     ) {
       setNavigateToMealPlanner(true);
+      resetTranscript();
+    }
+
+    //recipe
+    if (
+      transcript.toLowerCase().includes("chicken")
+    ) {
+      setNavigateToChicken(true);
       resetTranscript();
     }
 
@@ -115,6 +125,11 @@ const HomePage = ({ isTransitioning }) => {
   if (navigateToCalendar) {
     return <Navigate to="/calendar" />;
   }
+
+  if (navigateToChicken) {
+    return <Navigate to="/recipe/Creamy%20Cajun%20Chicken%20Pasta" />;
+  }
+  
 
   return (
     <div className={`home-layout ${isTransitioning ? "transitioning" : ""}`}>

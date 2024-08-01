@@ -47,7 +47,7 @@ function App() {
   // const { transcript } = useSpeechRecognition({ commands });
 
   useEffect(() => {
-    if (transcript.toLowerCase().includes("bixby")) {
+    if (transcript.toLowerCase().includes("hey")) {
       setShowOverlay(true);
       resetTranscript();
 
