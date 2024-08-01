@@ -51,8 +51,8 @@ const HomePage = ({ isTransitioning }) => {
   useEffect(() => {
     // fridge
     if (
-      transcript.toLowerCase().includes("what's in the fridge") ||
-      transcript.toLowerCase().includes("expiring soon")
+      transcript.toLowerCase().includes("fridge") ||
+      transcript.toLowerCase().includes("expiring")
     ) {
       setNavigateToFridge(true);
       resetTranscript();
@@ -60,7 +60,7 @@ const HomePage = ({ isTransitioning }) => {
 
     // meal planner
     if (
-      transcript.toLowerCase().includes("find chicken recipes") ||
+      transcript.toLowerCase().includes("recipes") ||
       transcript.toLowerCase().includes("what can I make with chicken")
     ) {
       setNavigateToMealPlanner(true);
