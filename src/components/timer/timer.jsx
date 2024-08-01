@@ -32,7 +32,7 @@ const Timer = ({ initialTime, title, onDelete }) => {
     return `${minutes}:${remainingSeconds < 10 ? "0" : ""}${remainingSeconds}`;
   };
 
-  const radius = 70;
+  const radius = 90;
   const circumference = 2 * Math.PI * radius;
   const strokeDashoffset = circumference - (time / initialTime) * circumference;
 
@@ -47,26 +47,42 @@ const Timer = ({ initialTime, title, onDelete }) => {
   return (
     <div className="timer">
       <div className="timer-circle">
-        <svg width="150" height="150">
+        <svg width="200" height="200">
           <circle
-            cx="75"
-            cy="75"
-            r={radius}
-            stroke="gray"
-            strokeWidth="8"
+            cx="100"
+            cy="100"
+            r={83}
+            stroke="#4A4A4A"
+            strokeWidth="1"
             fill="none"
           />
           <circle
-            cx="75"
-            cy="75"
-            r={radius}
-            stroke="red"
+            cx="100"
+            cy="100"
+            r={90}
+            stroke="#151515"
+            strokeWidth="9"
             fill="none"
-            strokeWidth="8"
+          />
+          <circle
+            cx="100"
+            cy="100"
+            r={97}
+            stroke="#4A4A4A"
+            strokeWidth="1"
+            fill="none"
+          />
+          <circle
+            cx="100"
+            cy="100"
+            r={radius}
+            stroke="#FF5454"
+            fill="none"
+            strokeWidth="15"
             strokeDasharray={circumference}
             strokeDashoffset={strokeDashoffset}
             style={{ transition: "stroke-dasharray 1s linear" }}
-            transform="rotate(-90 75 75)"
+            transform="rotate(-90 100 100)"
           />
         </svg>
         <div className="timer-content">
@@ -76,10 +92,18 @@ const Timer = ({ initialTime, title, onDelete }) => {
         </div>
       </div>
       <div className="timer-controls">
-        <button onClick={handlePlayPause}>
-          {isRunning ? "Pause" : "Play"}
-        </button>
-        <button onClick={handleDelete}>X</button>
+        <img
+          src={isRunning ? "/nav-icons/pause.svg" : "/nav-icons/play.png"}
+          alt="play"
+          onClick={handlePlayPause}
+          className="play-pause"
+        />
+        <img
+          src="/nav-icons/x.png"
+          alt="x"
+          onClick={handleDelete}
+          className="x"
+        />
       </div>
     </div>
   );

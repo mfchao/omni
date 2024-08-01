@@ -6,7 +6,7 @@ import "./Timer.css";
 const TimerDashboard = () => {
   const [timers, setTimers] = useState([
     { id: 1, intialTime: 1800, title: "Roast" },
-    { id: 2, intialTime: 1200, title: "Vegetables" },
+    // { id: 2, intialTime: 1200, title: "Vegetables" },
   ]);
 
   const [isModalOpen, setIsModalOpen] = useState(false);
@@ -30,7 +30,12 @@ const TimerDashboard = () => {
   return (
     <div className="timer-dashboard">
       <div className="timer-dashboard-header">
-        <button onClick={openModal}>Add Timer</button>
+        <img
+          src="/nav-icons/add.svg"
+          alt="add"
+          onClick={openModal}
+          className="add-timer-btn"
+        />
       </div>
       <div className="timer-dashboard-content">
         {timers.map((timer) => (

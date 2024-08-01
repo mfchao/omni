@@ -6,8 +6,8 @@
 }
 
 .timer-circle {
-  width: 150px;
-  height: 150px;
+  width: 200px;
+  height: 200px;
   display: flex;
   justify-content: center;
   align-items: center;
@@ -20,19 +20,36 @@
   position: absolute;
 }
 
+.add-timer-btn {
+  width: 4em;
+  position: fixed;
+  bottom: 20px;
+  right: 20px;
+}
+
+.x {
+  width: 30px;
+  margin-left: 5em;
+}
+
+.play-pause {
+  width: 30px;
+}
+
 .tiemr-title {
   font-size: 1.2rem;
   margin-bottom: 10px;
+  font-weight: lighter;
 }
 
 .timer-time {
-  font-size: 2rem;
+  font-size: 2.2rem;
+  margin: 0.2em;
+  font-weight: bold;
 }
 
 .timer-controls {
   display: flex;
-  gap: 10px;
-  margin-top: 10px;
 }
 
 .timer-controls button {
@@ -42,9 +59,10 @@
 
 .timer-dashboard {
   display: flex;
-  background-color: rgba(0, 0, 0, 0.905);
+  background-color: #0b0b0b;
   flex-direction: column;
-  height: 100%;
+  height: 600px;
+  width: 100%;
   padding: 5em;
   align-items: center;
 }
@@ -57,6 +75,7 @@
   display: flex;
   justify-content: center;
   flex-wrap: wrap;
+  overflow-y: hidden;
   gap: 20px;
 }
 
@@ -68,4 +87,58 @@ circle {
   display: flex;
   flex-direction: column;
   align-items: center;
+}
+
+.timer-modal-overlay {
+  position: fixed;
+  top: 15%;
+  left: 15%;
+  width: 100%;
+  height: 100%;
+  background: rgba(0, 0, 0, 0.5);
+  backdrop-filter: blur(5px);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  z-index: 2000;
+}
+
+/* Centered modal content */
+.timer-modal-content {
+  background-color: #fff;
+  padding: 20px;
+  border-radius: 10px;
+  width: 90%;
+  max-width: 500px;
+  text-align: center;
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+}
+
+.timer-form {
+  margin-top: 2em;
+}
+
+.timer-modal-content input,
+.timer-modal-content textarea {
+  width: 100%;
+  margin-bottom: 10px;
+  padding: 10px;
+  border: 1px solid #ddd;
+  border-radius: 5px;
+}
+
+/* Button styling */
+.timer-modal-content button {
+  margin-top: 10px;
+  padding: 10px 20px;
+  border-radius: 30px;
+  border: none;
+  background-color: #dadada;
+  color: #000000;
+  font-size: 16px;
+  cursor: pointer;
+  transition: background-color 0.3s;
+  margin-left: 1em;
+  margin-right: 1em;
+  margin-top: 4em;
 }

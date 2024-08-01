@@ -20,43 +20,44 @@ function TimerModal({ isOpen, onClose, onAdd }) {
     }
   };
 
+  if (!isOpen) return null;
+
   return (
-    <ReactModal
-      isOpen={isOpen}
-      onRequestClose={onClose}
-      contentLabel="Add Timer"
-      ariaHideApp={false}
-    >
-      <h2>Add A New Timer</h2>
-      <form onSubmit={handleSubmit}>
-        <div>
-          <label>
-            Timer Name:
-            <input
-              type="text"
-              value={title}
-              onChange={(e) => setTitle(e.target.value)}
-              required
-            />
-          </label>
-        </div>
-        <div>
-          <label>
-            Duration (seconds):
-            <input
-              type="number"
-              value={initialTime}
-              onChange={(e) => setInitialTime(e.target.value)}
-              required
-            />
-          </label>
-        </div>
-        <button type="submit"> Add Timer</button>
-        <button type="button" onClick={onClose}>
-          Cancel
-        </button>
-      </form>
-    </ReactModal>
+    <div className="timer-modal-overlay">
+      <div className="timer-modal-content">
+        <h2>Add A New Timer</h2>
+        <form onSubmit={handleSubmit}>
+          <div className="timer-form">
+            <label>
+              Timer Name:
+              <input
+                type="text"
+                value={title}
+                onChange={(e) => setTitle(e.target.value)}
+                required
+              />
+            </label>
+
+            <div>
+              <label>
+                Duration (seconds):
+                <input
+                  type="number"
+                  value={initialTime}
+                  onChange={(e) => setInitialTime(e.target.value)}
+                  required
+                />
+              </label>
+            </div>
+          </div>
+
+          <button type="submit"> Add Timer</button>
+          <button type="button" onClick={onClose}>
+            Close
+          </button>
+        </form>
+      </div>
+    </div>
   );
 }
 
