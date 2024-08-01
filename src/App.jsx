@@ -36,6 +36,7 @@ function App() {
       callback: (redirectPage) => setRedirectUrl(redirectPage),
     },
   ];
+  
   useEffect(() => {
     SpeechRecognition.startListening({ continuous: true });
 

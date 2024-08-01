@@ -1,5 +1,12 @@
-import React, { useState } from "react";
+import React, { useState, useEffect } from "react";
 import { Link } from "react-router-dom";
+import SpeechRecognition, {
+  useSpeechRecognition,
+} from "react-speech-recognition/lib/SpeechRecognition";
+import {
+
+  Navigate,
+} from "react-router-dom";
 
 const posts = {
   "Main Dishes": [
@@ -54,6 +61,31 @@ const posts = {
 
 const MealPlan = () => {
   const [filter, setFilter] = useState("Main Dishes");
+  const { transcript, resetTranscript } = useSpeechRecognition();
+  const [navigateToChicken, setNavigateToChicken] = useState(false);
+
+  useEffect(() => {
+    SpeechRecognition.startListening({ continuous: true });
+
+    return () => {
+      SpeechRecognition.stopListening();
+    };
+  }, []);
+
+  // const { transcript } = useSpeechRecognition({ commands });
+
+  useEffect(() => {
+    if (
+      transcript.toLowerCase().includes("chicken")
+    ) {
+      setNavigateToChicken(true);
+      resetTranscript();
+    }
+  }, [transcript, resetTranscript]);
+
+  if (navigateToChicken) {
+    return <Navigate to="/recipe/Creamy%20Cajun%20Chicken%20Pasta" />;
+  }
 
   return (
     <div className="meal-plan">
