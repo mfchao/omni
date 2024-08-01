@@ -1,12 +1,13 @@
 import React, { useEffect, useRef, useState } from "react";
 import Cover from "./components/Cover";
 import {
-  BrowserRouter,
+  BrowserRouter as Router,
   Route,
   useLocation,
   Routes,
   useNavigate,
   HashRouter,
+  Navigate,
 } from "react-router-dom";
 import HomePage from "./components/homePage/Home";
 import FridgeContents from "./components/fridgeContents/FridgeContents";
@@ -16,6 +17,9 @@ import TimerDashboard from "./components/timer/TimerDashboard";
 import MemoBoard from "./components/memo/MemoBoard";
 import Calendar from "./components/calendar/Calendar";
 import RecipesPage from "./components/fridgeContents/RecipesPage";
+import SpeechRecognition, {
+  useSpeechRecognition,
+} from "react-speech-recognition/lib/SpeechRecognition";
 
 function App() {
   const [isTransitioning, setIsTransitioning] = useState(false);
@@ -23,6 +27,53 @@ function App() {
   const [topbarHeight, setTopbarHeight] = useState(200);
   const [isResizing, setIsResizing] = useState(false);
   const [resizingDirection, setResizingDirection] = useState(null);
+  const [showOverlay, setShowOverlay] = useState(false);
+  const { transcript, resetTranscript } = useSpeechRecognition();
+  const [navigateToFridge, setNavigateToFridge] = useState(false);
+  const commands = [
+    {
+      command: ["Go to *", "Open *"],
+      callback: (redirectPage) => setRedirectUrl(redirectPage),
+    },
+  ];
+
+  // const { transcript } = useSpeechRecognition({ commands });
+
+  useEffect(() => {
+    if (transcript.toLowerCase().includes("hey bixby")) {
+      setShowOverlay(true);
+      resetTranscript();
+
+      setTimeout(() => {
+        setShowOverlay(false);
+      }, 3000);
+    }
+  }, [transcript, resetTranscript]);
+
+  // console.log(transcript);
+  const [redirectUrl, setRedirectUrl] = useState("");
+
+  const pages = ["home", "cover"];
+  const urls = {
+    home: "/",
+    cover: "/cover",
+  };
+
+  if (!SpeechRecognition.browserSupportsSpeechRecognition) {
+    console.log("Speech Recognition not supported in this browser");
+    return null;
+  }
+
+  let Redirect;
+
+  if (redirectUrl) {
+    if (pages.includes(redirectUrl)) {
+      Redirect = <Navigate to={urls[redirectUrl]} replace={true} />;
+      console.log("redirected to " + urls[redirectUrl]);
+    } else {
+      Redirect = <p>Could not find page: {redirectUrl}</p>;
+    }
+  }
 
   const startResizing = (clientX, clientY, direction) => {
     setIsResizing(true);
@@ -63,6 +114,7 @@ function App() {
     setIsTransitioning(true);
     setTimeout(() => setIsTransitioning(false), 300);
   };
+
   return (
     <>
       <div
@@ -88,47 +140,54 @@ function App() {
           ></div>
         </div>
 
-        {/* <HashRouter> */}
-        <div className="display">
-          <div className="app-content">
-            <div className="top-bar-black" style={{ height: topbarHeight }}>
-              <div
-                className="resize-handle-top"
-                onMouseDown={(e) =>
-                  startResizing(e.clientX, e.clientY, "vertical")
-                }
-                onTouchStart={(e) =>
-                  startResizing(
-                    e.touches[0].clientX,
-                    e.touches[0].clientY,
-                    "vertical"
-                  )
-                }
-              ></div>
-              <SideMenu />
-            </div>
+        <Router>
+          {" "}
+          <div className="display">
+            <div className="app-content">
+              <div className="top-bar-black" style={{ height: topbarHeight }}>
+                <div
+                  className="resize-handle-top"
+                  onMouseDown={(e) =>
+                    startResizing(e.clientX, e.clientY, "vertical")
+                  }
+                  onTouchStart={(e) =>
+                    startResizing(
+                      e.touches[0].clientX,
+                      e.touches[0].clientY,
+                      "vertical"
+                    )
+                  }
+                ></div>
+                <SideMenu />
+              </div>
 
-            <Routes>
-              <Route
-                exact
-                path="/"
-                element={<Cover onTransition={handleTransition} />}
-              />
-              <Route
-                path="/home"
-                element={<HomePage isTransitioning={isTransitioning} />}
-              />
-              <Route path="/fridge-contents" element={<FridgeContents />} />
-              <Route path="/meal-plan" element={<MealPlan />} />
-              <Route path="/recipe/:title" element={<Recipes />} />
-              <Route path="/timer" element={<TimerDashboard />} />
-              <Route path="/memos" element={<MemoBoard />} />
-              <Route path="/calendar" element={<Calendar />} />
-              <Route path="/recipes" element={<RecipesPage />} />
-            </Routes>
+              {showOverlay && (
+                <div className="ai-overlay">
+                  <img src="/nav-icons/stars.gif" alt="animation" />
+                </div>
+              )}
+
+              <Routes>
+                <Route
+                  exact
+                  path="/"
+                  element={<Cover onTransition={handleTransition} />}
+                />
+                <Route
+                  path="/home"
+                  element={<HomePage isTransitioning={isTransitioning} />}
+                />
+                <Route path="/fridge-contents" element={<FridgeContents />} />
+                <Route path="/meal-plan" element={<MealPlan />} />
+                <Route path="/recipe/:title" element={<Recipes />} />
+                <Route path="/timer" element={<TimerDashboard />} />
+                <Route path="/memos" element={<MemoBoard />} />
+                <Route path="/calendar" element={<Calendar />} />
+                <Route path="/recipes" element={<RecipesPage />} />
+              </Routes>
+            </div>
           </div>
-        </div>
-        {/* </HashRouter> */}
+        </Router>
       </div>
     </>
   );

@@ -2,6 +2,19 @@ import Weather from "../weather/Weather";
 import AppCard from "./AppCard";
 import DateTime from "./DateTime";
 
+import { useEffect, useState } from "react";
+import SpeechRecognition, {
+  useSpeechRecognition,
+} from "react-speech-recognition/lib/SpeechRecognition";
+import {
+  BrowserRouter as Router,
+  Route,
+  useLocation,
+  Routes,
+  useNavigate,
+  HashRouter,
+  Navigate,
+} from "react-router-dom";
 const apps = [
   {
     name: "Fridge Contents",
@@ -22,6 +35,28 @@ const apps = [
 ];
 
 const HomePage = ({ isTransitioning }) => {
+  const { transcript, resetTranscript } = useSpeechRecognition();
+  const [navigateToFridge, setNavigateToFridge] = useState(false);
+  useEffect(() => {
+    SpeechRecognition.startListening({ continuous: true });
+
+    return () => {
+      SpeechRecognition.stopListening();
+    };
+  }, []);
+  console.log(transcript);
+
+  useEffect(() => {
+    // fridge
+    if (transcript.toLowerCase().includes("what's in the fridge")) {
+      setNavigateToFridge(true);
+      resetTranscript();
+    }
+  }, [transcript, resetTranscript]);
+  if (navigateToFridge) {
+    return <Navigate to="/fridge-contents" />;
+  }
+
   return (
     <div className={`home-layout ${isTransitioning ? "transitioning" : ""}`}>
       <div className="top-bar">
