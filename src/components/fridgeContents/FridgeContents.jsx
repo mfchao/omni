@@ -1,5 +1,8 @@
-import React, { useState } from "react";
+import React, { useState , useEffect} from "react";
 import { useNavigate } from "react-router-dom";
+import SpeechRecognition, {
+  useSpeechRecognition,
+} from "react-speech-recognition/lib/SpeechRecognition";
 
 const foods = [
   {
@@ -61,6 +64,8 @@ const foods = [
 function FridgeContents() {
   const [filter, setFilter] = useState("all");
   const navigate = useNavigate();
+  const { transcript, resetTranscript } = useSpeechRecognition();
+
 
   const filteredFoods =
     filter === "all" ? foods : foods.filter((food) => food.daysLeft <= 3);
@@ -68,6 +73,27 @@ function FridgeContents() {
   const handleClick = () => {
     navigate("/recipes");
   };
+
+  useEffect(() => {
+    SpeechRecognition.startListening({ continuous: true });
+
+    return () => {
+      SpeechRecognition.stopListening();
+    };
+  }, []);
+  // console.log(transcript);
+
+  useEffect(() => {
+    // fridge
+    if (
+      transcript.toLowerCase().includes("expiring")
+    ) {
+      setFilter("expiring")
+      resetTranscript();
+    }
+
+  }, [transcript, resetTranscript]);
+ 
 
   return (
     <div className="fridge-contents">

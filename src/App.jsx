@@ -135,7 +135,7 @@ function App() {
         onTouchMove={handleTouchMove}
         onTouchEnd={handleTouchEnd}
       >
-        <div className="controls" style={{ width: sidebarWidth }}>
+        {/* <div className="controls" style={{ width: sidebarWidth }}>
           <div
             className="resize-handle"
             onMouseDown={(e) =>
@@ -149,12 +149,12 @@ function App() {
               )
             }
           ></div>
-        </div>
+        </div> */}
 
         {/* <HashRouter> */}
         <div className="display">
           <div className="app-content">
-            <div className="top-bar-black" style={{ height: topbarHeight }}>
+            {/* <div className="top-bar-black" style={{ height: topbarHeight }}>
               <div
                 className="resize-handle-top"
                 onMouseDown={(e) =>
@@ -168,8 +168,9 @@ function App() {
                   )
                 }
               ></div>
-              <SideMenu />
-            </div>
+              
+            </div> */}
+            <SideMenu />
 
             {showOverlay && (
               <div className="ai-overlay">
