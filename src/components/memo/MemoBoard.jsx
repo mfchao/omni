@@ -105,7 +105,7 @@ function MemoBoard() {
         onClose={handleCloseModal}
         onAdd={handleAddTextNote}
       />
-      <div className="sticky-posts-container">
+      {/* <div className="sticky-posts-container">
         {notes.map((note, index) => (
           <StickyNote
             key={index}
@@ -115,6 +115,23 @@ function MemoBoard() {
             timeAgo={note.timeAgo}
             isDrawing={note.isDrawing}
           />
+        ))}
+      </div> */}
+      <div className="s-posts-container">
+        {notes.map((note, index) => (
+          
+            <div className="s-post-section">
+              <StickyNote
+            key={index}
+            date={note.date}
+            from={note.from}
+            content={note.content}
+            timeAgo={note.timeAgo}
+            isDrawing={note.isDrawing}
+          />
+              
+            </div>
+         
         ))}
       </div>
     </div>

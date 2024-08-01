@@ -62,7 +62,13 @@ function StickyNoteModal({ isOpen, onClose, onAdd }) {
       setContent("");
       resetTranscript();
       onClose();
-    } else {
+    } else if (content){
+      onAdd(todayDate, placeholderName, content);
+      setContent("");
+      resetTranscript();
+      onClose();}
+      else{
+      
       alert("Please enter some text");
     }
   };

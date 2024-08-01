@@ -23,8 +23,8 @@
 .add-timer-btn {
   width: 4em;
   position: fixed;
-  bottom: 20px;
-  right: 20px;
+  bottom: 210px;
+  right: 250px;
 }
 
 .x {
@@ -91,8 +91,8 @@ circle {
 
 .timer-modal-overlay {
   position: fixed;
-  top: 15%;
-  left: 15%;
+  top: 0%;
+  left: 0%;
   width: 100%;
   height: 100%;
   background: rgba(0, 0, 0, 0.5);

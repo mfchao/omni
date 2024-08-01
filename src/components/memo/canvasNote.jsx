@@ -72,7 +72,7 @@ function CanvasNote({ onAdd, onClose }) {
         <canvas
           ref={canvasRef}
           width={window.innerWidth}
-          height={window.innerHeight - 500} // Adjust for height
+          height={window.innerHeight - 900} // Adjust for height
           className="canvas"
           onMouseDown={startDrawing}
           onMouseMove={draw}

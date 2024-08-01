@@ -110,9 +110,10 @@ const Recipes = () => {
             ))}
         </div>
       )}
-
+<div className="s-posts-container">
       {view === "method" && (
-        <div className="method-list steps-container">
+        
+        <div className="s-post-section ">
           {recipe.method &&
             recipe.method.map((step, index) => (
               <div key={index}>
@@ -123,7 +124,9 @@ const Recipes = () => {
               </div>
             ))}
         </div>
+        
       )}
+    </div>
     </div>
   );
 };
