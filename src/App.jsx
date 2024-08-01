@@ -14,11 +14,12 @@ import MealPlan from "./components/mealPlan/exploreMeals";
 import Recipes from "./components/mealPlan/recipes";
 import TimerDashboard from "./components/timer/TimerDashboard";
 import MemoBoard from "./components/memo/MemoBoard";
+import Calendar from "./components/calendar/Calendar";
 
 function App() {
   const [isTransitioning, setIsTransitioning] = useState(false);
   const [sidebarWidth, setSidebarWidth] = useState(300);
-  const [topbarHeight, setTopbarHeight] = useState(150);
+  const [topbarHeight, setTopbarHeight] = useState(200);
   const [isResizing, setIsResizing] = useState(false);
   const [resizingDirection, setResizingDirection] = useState(null);
 
@@ -86,25 +87,26 @@ function App() {
           ></div>
         </div>
 
-        <div className="top-bar" style={{ height: topbarHeight }}>
-          <div
-            className="resize-handle-top"
-            onMouseDown={(e) => startResizing(e.clientX, e.clientY, "vertical")}
-            onTouchStart={(e) =>
-              startResizing(
-                e.touches[0].clientX,
-                e.touches[0].clientY,
-                "vertical"
-              )
-            }
-          ></div>
-        </div>
-
         {/* <HashRouter> */}
         <div className="display">
-          <SideMenu />
-
           <div className="app-content">
+            <div className="top-bar-black" style={{ height: topbarHeight }}>
+              <div
+                className="resize-handle-top"
+                onMouseDown={(e) =>
+                  startResizing(e.clientX, e.clientY, "vertical")
+                }
+                onTouchStart={(e) =>
+                  startResizing(
+                    e.touches[0].clientX,
+                    e.touches[0].clientY,
+                    "vertical"
+                  )
+                }
+              ></div>
+              <SideMenu />
+            </div>
+
             <Routes>
               <Route
                 exact
@@ -120,6 +122,7 @@ function App() {
               <Route path="/recipe/:title" element={<Recipes />} />
               <Route path="/timer" element={<TimerDashboard />} />
               <Route path="/memos" element={<MemoBoard />} />
+              <Route path="/calendar" element={<Calendar />} />
             </Routes>
           </div>
         </div>
@@ -143,7 +146,6 @@ const SideMenu = () => {
         <button className="menu-button" onClick={() => navigate("/home")}>
           <img src="/nav-icons/Home.svg" alt="Home" className="home-button" />
         </button>
-        <div className="menu-separator"></div>
         <button className="menu-button" onClick={() => navigate(-1)}>
           <img src="/nav-icons/Back.svg" alt="Back" className="back-button" />
         </button>
