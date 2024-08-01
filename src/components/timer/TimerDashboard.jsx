@@ -8,7 +8,7 @@ import SpeechRecognition, {
 
 const TimerDashboard = () => {
   const [timers, setTimers] = useState([
-    { id: 1, intialTime: 1800, title: "Roast" },
+    { id: 1, intialTime: 180, title: "Roast" },
     // { id: 2, intialTime: 1200, title: "Vegetables" },
   ]);
 

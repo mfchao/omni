@@ -487,6 +487,7 @@ body {
   display: grid;
   grid-template-columns: repeat(auto-fill, minmax(140px, 1fr));
   gap: 10px;
+  overflow-y: auto;
 }
 
 .background {
@@ -499,7 +500,9 @@ body {
 
 .grid-item {
   text-align: center;
-  margin-bottom: 1em;
+  margin-bottom: 1.2em;
+  overflow-y: auto;
+
 }
 
 .grid-item img {
@@ -1007,6 +1010,7 @@ body {
   color: white;
   display: flex;
   flex-direction: row;
+  height: 500px;
 }
 
 .header {
@@ -1030,9 +1034,9 @@ body {
   gap: 10px;
   max-width: 45%;
   height: 10em; 
-  margin-top: 8em;
+  margin-top: 6em;
   position: absolute;
-  bottom: 50px
+  bottom: 90px
 }
 
 .ingredient-item {
@@ -1055,7 +1059,7 @@ body {
 }
 
 .recipe-image {
-  width: 300px;
+  width: 350px;
   background-size: cover;
   background-position: center;
   position: relative;

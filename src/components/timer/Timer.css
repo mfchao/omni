@@ -116,6 +116,7 @@ circle {
 
 .timer-form {
   margin-top: 2em;
+  max-width: fit-content;
 }
 
 .timer-modal-content input,
