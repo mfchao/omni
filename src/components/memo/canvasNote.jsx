@@ -59,6 +59,7 @@ function CanvasNote({ onAdd, onClose }) {
     if (placeholderName) {
       const canvas = canvasRef.current;
       const content = canvas ? canvas.toDataURL() : "";
+      console.log(canvas.toDataURL())
       onAdd(new Date().toISOString().split("T")[0], placeholderName, content);
       onClose();
     } else {

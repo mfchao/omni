@@ -4,7 +4,10 @@ import StickyNoteModal from "./stickyNoteModal";
 import CanvasNote from "./canvasNote";
 
 function MemoBoard() {
-  const [notes, setNotes] = useState([]);
+  const [notes, setNotes] = useState([
+    { date: new Date('August 1, 2024'), from: "Dad", content: "/images/memo/memo-ex.png", isDrawing: true},
+    { date: new Date('December 17, 1995 03:24:00'), from: "Dad", content: "Hey don't forget to buy apples today!", isDrawing: false},
+  ]);
   const [isModalOpen, setIsModalOpen] = useState(false);
   const [noteType, setNoteType] = useState("");
   const [isCanvasVisible, setIsCanvasVisible] = useState(false);

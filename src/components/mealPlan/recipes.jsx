@@ -56,7 +56,374 @@ const recipes = {
       "Serve the sauce over the spaghetti and enjoy!",
     ],
   },
-  //   add other recipes here
+  "Grilled Asparagus with Onions": {
+    title: "Grilled Asparagus with Onions",
+    prepTime: "5min",
+    cookTime: "25min",
+    ingredients: [
+      {
+        name: "2 Tbsp smoked paprika",
+        image: "/images/meal-plan/ingredients/paprika.png",
+      },
+      {
+        name: "2 Tbsp smoked paprika",
+        image: "/images/meal-plan/ingredients/paprika.png",
+      },
+      {
+        name: "2 Tbsp smoked paprika",
+        image: "/images/meal-plan/ingredients/paprika.png",
+      },
+      {
+        name: "2 Tbsp smoked paprika",
+        image: "/images/meal-plan/ingredients/paprika.png",
+      },
+      {
+        name: "2 Tbsp smoked paprika",
+        image: "/images/meal-plan/ingredients/paprika.png",
+      },
+      {
+        name: "2 Tbsp smoked paprika",
+        image: "/images/meal-plan/ingredients/paprika.png",
+      },
+      {
+        name: "2 Tbsp smoked paprika",
+        image: "/images/meal-plan/ingredients/paprika.png",
+      },
+      {
+        name: "2 Tbsp smoked paprika",
+        image: "/images/meal-plan/ingredients/paprika.png",
+      },
+      {
+        name: "2 Tbsp smoked paprika",
+        image: "/images/meal-plan/ingredients/paprika.png",
+      },
+      {
+        name: "2 Tbsp smoked paprika",
+        image: "/images/meal-plan/ingredients/paprika.png",
+      },
+    ],
+    method: [
+      "Heat oil in a pan and saute the onions and garlic until golden brown",
+      "Add asparagus and cook until browned",
+      "Season with salt and garlic and simmer for 20 minutes",
+      "Serve with sauce and enjoy!",
+    ],
+  },
+  "Chicken Taco Lettuce Wraps": {
+    title: "Chicken Taco Lettuce Wraps",
+    prepTime: "10min",
+    cookTime: "30min",
+    ingredients: [
+      {
+        name: "2 Tbsp smoked paprika",
+        image: "/images/meal-plan/ingredients/paprika.png",
+      },
+      {
+        name: "2 Tbsp smoked paprika",
+        image: "/images/meal-plan/ingredients/paprika.png",
+      },
+      {
+        name: "2 Tbsp smoked paprika",
+        image: "/images/meal-plan/ingredients/paprika.png",
+      },
+      {
+        name: "2 Tbsp smoked paprika",
+        image: "/images/meal-plan/ingredients/paprika.png",
+      },
+      {
+        name: "2 Tbsp smoked paprika",
+        image: "/images/meal-plan/ingredients/paprika.png",
+      },
+      {
+        name: "2 Tbsp smoked paprika",
+        image: "/images/meal-plan/ingredients/paprika.png",
+      },
+      {
+        name: "2 Tbsp smoked paprika",
+        image: "/images/meal-plan/ingredients/paprika.png",
+      },
+      {
+        name: "2 Tbsp smoked paprika",
+        image: "/images/meal-plan/ingredients/paprika.png",
+      },
+      {
+        name: "2 Tbsp smoked paprika",
+        image: "/images/meal-plan/ingredients/paprika.png",
+      },
+      {
+        name: "2 Tbsp smoked paprika",
+        image: "/images/meal-plan/ingredients/paprika.png",
+      },
+    ],
+    method: [
+      "Peel the lettuce and rise to wash. ",
+      "Cut chicken into bite sized pieces.",
+      "Season chicken with parika and salt.",
+      "Stir fry with cajun seasoning until brown.",
+      "Serve over lettuce and enjoy!",
+    ],
+  },"5 Minute Mediterranean Bowl": {
+    title: "5 Minute Mediterranean Bowl",
+    prepTime: "2min",
+    cookTime: "5min",
+    ingredients: [
+      {
+        name: "2 Tbsp smoked paprika",
+        image: "/images/meal-plan/ingredients/paprika.png",
+      },
+      {
+        name: "2 Tbsp smoked paprika",
+        image: "/images/meal-plan/ingredients/paprika.png",
+      },
+      {
+        name: "2 Tbsp smoked paprika",
+        image: "/images/meal-plan/ingredients/paprika.png",
+      },
+      {
+        name: "2 Tbsp smoked paprika",
+        image: "/images/meal-plan/ingredients/paprika.png",
+      },
+      {
+        name: "2 Tbsp smoked paprika",
+        image: "/images/meal-plan/ingredients/paprika.png",
+      },
+      {
+        name: "2 Tbsp smoked paprika",
+        image: "/images/meal-plan/ingredients/paprika.png",
+      },
+      {
+        name: "2 Tbsp smoked paprika",
+        image: "/images/meal-plan/ingredients/paprika.png",
+      },
+      {
+        name: "2 Tbsp smoked paprika",
+        image: "/images/meal-plan/ingredients/paprika.png",
+      },
+      {
+        name: "2 Tbsp smoked paprika",
+        image: "/images/meal-plan/ingredients/paprika.png",
+      },
+      {
+        name: "2 Tbsp smoked paprika",
+        image: "/images/meal-plan/ingredients/paprika.png",
+      },
+    ],
+    method: [
+      "Prep the cauliflower and wash ingredients.",
+      "Cut chicken into bite sized pieces.",
+      "Season chicken with parika and salt.",
+      "Stir fry with cajun seasoning until brown.",
+      "Serve over lettuce and enjoy!",
+    ],
+  },"Sweet Potato Fries": {
+    title: "Sweet Potato Fries",
+    prepTime: "10min",
+    cookTime: "30min",
+    ingredients: [
+      {
+        name: "2 Tbsp smoked paprika",
+        image: "/images/meal-plan/ingredients/paprika.png",
+      },
+      {
+        name: "2 Tbsp smoked paprika",
+        image: "/images/meal-plan/ingredients/paprika.png",
+      },
+      {
+        name: "2 Tbsp smoked paprika",
+        image: "/images/meal-plan/ingredients/paprika.png",
+      },
+      {
+        name: "2 Tbsp smoked paprika",
+        image: "/images/meal-plan/ingredients/paprika.png",
+      },
+      {
+        name: "2 Tbsp smoked paprika",
+        image: "/images/meal-plan/ingredients/paprika.png",
+      },
+      {
+        name: "2 Tbsp smoked paprika",
+        image: "/images/meal-plan/ingredients/paprika.png",
+      },
+      {
+        name: "2 Tbsp smoked paprika",
+        image: "/images/meal-plan/ingredients/paprika.png",
+      },
+      {
+        name: "2 Tbsp smoked paprika",
+        image: "/images/meal-plan/ingredients/paprika.png",
+      },
+      {
+        name: "2 Tbsp smoked paprika",
+        image: "/images/meal-plan/ingredients/paprika.png",
+      },
+      {
+        name: "2 Tbsp smoked paprika",
+        image: "/images/meal-plan/ingredients/paprika.png",
+      },
+    ],
+    method: [
+      "Cut sweet potato into pieces.",
+      "Season sweet potato with parika and salt.",
+      "Cook in oven until brown and crispy",
+      "Serve with ketchup and enjoy!",
+    ],
+  },"10 Minute Braised Celery": {
+    title: "10 Minute Braised Celery",
+    prepTime: "5min",
+    cookTime: "10min",
+    ingredients: [
+      {
+        name: "2 Tbsp smoked paprika",
+        image: "/images/meal-plan/ingredients/paprika.png",
+      },
+      {
+        name: "2 Tbsp smoked paprika",
+        image: "/images/meal-plan/ingredients/paprika.png",
+      },
+      {
+        name: "2 Tbsp smoked paprika",
+        image: "/images/meal-plan/ingredients/paprika.png",
+      },
+      {
+        name: "2 Tbsp smoked paprika",
+        image: "/images/meal-plan/ingredients/paprika.png",
+      },
+      {
+        name: "2 Tbsp smoked paprika",
+        image: "/images/meal-plan/ingredients/paprika.png",
+      },
+      {
+        name: "2 Tbsp smoked paprika",
+        image: "/images/meal-plan/ingredients/paprika.png",
+      },
+      {
+        name: "2 Tbsp smoked paprika",
+        image: "/images/meal-plan/ingredients/paprika.png",
+      },
+      {
+        name: "2 Tbsp smoked paprika",
+        image: "/images/meal-plan/ingredients/paprika.png",
+      },
+      {
+        name: "2 Tbsp smoked paprika",
+        image: "/images/meal-plan/ingredients/paprika.png",
+      },
+      {
+        name: "2 Tbsp smoked paprika",
+        image: "/images/meal-plan/ingredients/paprika.png",
+      },
+    ],
+    method: [
+      "Cut celery into pieces.",
+      "Season sweet potato with parika and salt.",
+      "Cook in oven until brown and crispy",
+      "Serve with ketchup and enjoy!",
+    ],
+  },"Brownies": {
+    title: "Brownies",
+    prepTime: "5min",
+    cookTime: "10min",
+    ingredients: [
+      {
+        name: "2 Tbsp smoked paprika",
+        image: "/images/meal-plan/ingredients/paprika.png",
+      },
+      {
+        name: "2 Tbsp smoked paprika",
+        image: "/images/meal-plan/ingredients/paprika.png",
+      },
+      {
+        name: "2 Tbsp smoked paprika",
+        image: "/images/meal-plan/ingredients/paprika.png",
+      },
+      {
+        name: "2 Tbsp smoked paprika",
+        image: "/images/meal-plan/ingredients/paprika.png",
+      },
+      {
+        name: "2 Tbsp smoked paprika",
+        image: "/images/meal-plan/ingredients/paprika.png",
+      },
+      {
+        name: "2 Tbsp smoked paprika",
+        image: "/images/meal-plan/ingredients/paprika.png",
+      },
+      {
+        name: "2 Tbsp smoked paprika",
+        image: "/images/meal-plan/ingredients/paprika.png",
+      },
+      {
+        name: "2 Tbsp smoked paprika",
+        image: "/images/meal-plan/ingredients/paprika.png",
+      },
+      {
+        name: "2 Tbsp smoked paprika",
+        image: "/images/meal-plan/ingredients/paprika.png",
+      },
+      {
+        name: "2 Tbsp smoked paprika",
+        image: "/images/meal-plan/ingredients/paprika.png",
+      },
+    ],
+    method: [
+      "Mix flour, cocoa powder, and sugar in a large bowl.",
+      "Cut into squares.",
+      "Cook in oven until brown and crispy",
+      "Serve with powdered sugar and enjoy!",
+    ],
+  },"Strawberry Cake": {
+    title: "Strawberry Cake",
+    prepTime: "20min",
+    cookTime: "40min",
+    ingredients: [
+      {
+        name: "2 Tbsp smoked paprika",
+        image: "/images/meal-plan/ingredients/paprika.png",
+      },
+      {
+        name: "2 Tbsp smoked paprika",
+        image: "/images/meal-plan/ingredients/paprika.png",
+      },
+      {
+        name: "2 Tbsp smoked paprika",
+        image: "/images/meal-plan/ingredients/paprika.png",
+      },
+      {
+        name: "2 Tbsp smoked paprika",
+        image: "/images/meal-plan/ingredients/paprika.png",
+      },
+      {
+        name: "2 Tbsp smoked paprika",
+        image: "/images/meal-plan/ingredients/paprika.png",
+      },
+      {
+        name: "2 Tbsp smoked paprika",
+        image: "/images/meal-plan/ingredients/paprika.png",
+      },
+      {
+        name: "2 Tbsp smoked paprika",
+        image: "/images/meal-plan/ingredients/paprika.png",
+      },
+      {
+        name: "2 Tbsp smoked paprika",
+        image: "/images/meal-plan/ingredients/paprika.png",
+      },
+      {
+        name: "2 Tbsp smoked paprika",
+        image: "/images/meal-plan/ingredients/paprika.png",
+      },
+      {
+        name: "2 Tbsp smoked paprika",
+        image: "/images/meal-plan/ingredients/paprika.png",
+      },
+    ],
+    method: [
+      "Mix flour, cocoa powder, and sugar in a large bowl.",
+      "Chop strawberries into small pieces.",
+      "Cook in oven until brown and crispy",
+      "Serve with powdered sugar and enjoy!",
+    ],
+  },
 };
 
 const Recipes = () => {

@@ -18,8 +18,8 @@ function StickyNote({ date, from, content, timeAgo, isDrawing }) {
   return (
     <div className="sticky-note">
       <h2>{formatDate(date)}</h2>
-      <p>
-        From <strong>{from}</strong> | {timeAgo}
+      <p className="memo-info">
+        From <strong>{from}</strong> | {timeAgo ? timeAgo : '1 hour ago'}
       </p>
       {isDrawing ? (
         <img

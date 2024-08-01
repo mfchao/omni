@@ -45,7 +45,7 @@ const posts = {
   ],
   Desserts: [
     {
-      title: " 5 Ingredient Brwonies",
+      title: "Brownies",
       image: "/images/meal-plan/brownie.jpg",
       time: "20min",
       ingredients: 5,

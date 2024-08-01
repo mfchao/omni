@@ -23,6 +23,12 @@ p {
   font-size: 1.2em;
 }
 
+.memo-info{
+  font-size: 16px;
+  margin-top: 0.4em;
+  color: rgba(100, 100, 100, 0.864);
+}
+
 .app {
   display: flex;
   width: 100vw;
@@ -578,7 +584,7 @@ body {
 
 .s-posts-container {
   display: flex;
-  overflow-x: auto;
+  overflow-x: scroll;
   overflow-y: hidden;
   gap: 10px;
   margin-top: 2em;
@@ -786,10 +792,12 @@ body {
 }
 
 .memo-text {
-  font-family: "Patrick Hand", cursive; /* Handwriting font */
+  font-family: "Bradley Hand"; /* Handwriting font */
   font-size: 24px;
   text-align: center;
   line-height: 1.4;
+  justify-content: center;
+  margin-top: 3em;
 }
 
 /* Add Button */
@@ -894,12 +902,7 @@ body {
 }
 
 /* Memo text */
-.memo-text {
-  font-family: "Patrick Hand", cursive;
-  font-size: 24px;
-  text-align: center;
-  line-height: 1.4;
-}
+
 
 .text-modal-overlay {
   position: fixed;
