@@ -1,7 +1,10 @@
-import { useState } from "react";
+import { useState, useEffect } from "react";
 import Timer from "./timer";
 import TimerModal from "./timerModal";
 import "./Timer.css";
+import SpeechRecognition, {
+  useSpeechRecognition,
+} from "react-speech-recognition/lib/SpeechRecognition";
 
 const TimerDashboard = () => {
   const [timers, setTimers] = useState([
@@ -10,6 +13,15 @@ const TimerDashboard = () => {
   ]);
 
   const [isModalOpen, setIsModalOpen] = useState(false);
+  const { transcript, resetTranscript } = useSpeechRecognition();
+
+  useEffect(() => {
+    SpeechRecognition.startListening({ continuous: true });
+
+    return () => {
+      SpeechRecognition.stopListening();
+    };
+  }, []);
 
   const addTimer = (name, duration) => {
     setTimers([
@@ -17,6 +29,14 @@ const TimerDashboard = () => {
       { id: Date.now(), intialTime: duration, title: name },
     ]);
   };
+
+  useEffect(() => {
+    // set timer with voice
+    if (transcript.toLowerCase().includes("set an oven timer for 30 seconds")) {
+      addTimer("oven", 30);
+      resetTranscript();
+    }
+  }, [transcript, resetTranscript]);
 
   const deleteTimer = (title) => {
     setTimers((prevTimers) =>

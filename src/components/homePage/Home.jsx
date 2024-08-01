@@ -37,6 +37,8 @@ const apps = [
 const HomePage = ({ isTransitioning }) => {
   const { transcript, resetTranscript } = useSpeechRecognition();
   const [navigateToFridge, setNavigateToFridge] = useState(false);
+  const [navigateToMealPlanner, setNavigateToMealPlanner] = useState(false);
+
   useEffect(() => {
     SpeechRecognition.startListening({ continuous: true });
 
@@ -44,17 +46,32 @@ const HomePage = ({ isTransitioning }) => {
       SpeechRecognition.stopListening();
     };
   }, []);
-  console.log(transcript);
+  // console.log(transcript);
 
   useEffect(() => {
     // fridge
-    if (transcript.toLowerCase().includes("what's in the fridge")) {
+    if (
+      transcript.toLowerCase().includes("what's in the fridge") ||
+      transcript.toLowerCase().includes("expiring soon")
+    ) {
       setNavigateToFridge(true);
+      resetTranscript();
+    }
+
+    // meal planner
+    if (
+      transcript.toLowerCase().includes("find chicken recipes") ||
+      transcript.toLowerCase().includes("what can I make with chicken")
+    ) {
+      setNavigateToMealPlanner(true);
       resetTranscript();
     }
   }, [transcript, resetTranscript]);
   if (navigateToFridge) {
     return <Navigate to="/fridge-contents" />;
+  }
+  if (navigateToMealPlanner) {
+    return <Navigate to="/meal-plan" />;
   }
 
   return (

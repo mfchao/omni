@@ -1,7 +1,7 @@
 import React, { useEffect, useRef, useState } from "react";
 import Cover from "./components/Cover";
 import {
-  BrowserRouter as Router,
+  BrowserRouter,
   Route,
   useLocation,
   Routes,
@@ -36,6 +36,13 @@ function App() {
       callback: (redirectPage) => setRedirectUrl(redirectPage),
     },
   ];
+  useEffect(() => {
+    SpeechRecognition.startListening({ continuous: true });
+
+    return () => {
+      SpeechRecognition.stopListening();
+    };
+  }, []);
 
   // const { transcript } = useSpeechRecognition({ commands });
 
@@ -63,6 +70,10 @@ function App() {
     console.log("Speech Recognition not supported in this browser");
     return null;
   }
+
+  // if (navigateToFridge) {
+  //   return <Navigate to="/fridge-contents" />;
+  // }
 
   let Redirect;
 
@@ -140,54 +151,53 @@ function App() {
           ></div>
         </div>
 
-        <Router>
-          {" "}
-          <div className="display">
-            <div className="app-content">
-              <div className="top-bar-black" style={{ height: topbarHeight }}>
-                <div
-                  className="resize-handle-top"
-                  onMouseDown={(e) =>
-                    startResizing(e.clientX, e.clientY, "vertical")
-                  }
-                  onTouchStart={(e) =>
-                    startResizing(
-                      e.touches[0].clientX,
-                      e.touches[0].clientY,
-                      "vertical"
-                    )
-                  }
-                ></div>
-                <SideMenu />
-              </div>
-
-              {showOverlay && (
-                <div className="ai-overlay">
-                  <img src="/nav-icons/stars.gif" alt="animation" />
-                </div>
-              )}
-
-              <Routes>
-                <Route
-                  exact
-                  path="/"
-                  element={<Cover onTransition={handleTransition} />}
-                />
-                <Route
-                  path="/home"
-                  element={<HomePage isTransitioning={isTransitioning} />}
-                />
-                <Route path="/fridge-contents" element={<FridgeContents />} />
-                <Route path="/meal-plan" element={<MealPlan />} />
-                <Route path="/recipe/:title" element={<Recipes />} />
-                <Route path="/timer" element={<TimerDashboard />} />
-                <Route path="/memos" element={<MemoBoard />} />
-                <Route path="/calendar" element={<Calendar />} />
-                <Route path="/recipes" element={<RecipesPage />} />
-              </Routes>
+        {/* <HashRouter> */}
+        <div className="display">
+          <div className="app-content">
+            <div className="top-bar-black" style={{ height: topbarHeight }}>
+              <div
+                className="resize-handle-top"
+                onMouseDown={(e) =>
+                  startResizing(e.clientX, e.clientY, "vertical")
+                }
+                onTouchStart={(e) =>
+                  startResizing(
+                    e.touches[0].clientX,
+                    e.touches[0].clientY,
+                    "vertical"
+                  )
+                }
+              ></div>
+              <SideMenu />
             </div>
+
+            {showOverlay && (
+              <div className="ai-overlay">
+                <img src="/nav-icons/stars.gif" alt="animation" />
+              </div>
+            )}
+
+            <Routes>
+              <Route
+                exact
+                path="/"
+                element={<Cover onTransition={handleTransition} />}
+              />
+              <Route
+                path="/home"
+                element={<HomePage isTransitioning={isTransitioning} />}
+              />
+              <Route path="/fridge-contents" element={<FridgeContents />} />
+              <Route path="/meal-plan" element={<MealPlan />} />
+              <Route path="/recipe/:title" element={<Recipes />} />
+              <Route path="/timer" element={<TimerDashboard />} />
+              <Route path="/memos" element={<MemoBoard />} />
+              <Route path="/calendar" element={<Calendar />} />
+              <Route path="/recipes" element={<RecipesPage />} />
+            </Routes>
           </div>
-        </Router>
+        </div>
+        {/* </HashRouter> */}
       </div>
     </>
   );
