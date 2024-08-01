@@ -70,7 +70,7 @@ const Recipes = () => {
 
   return (
     <div className="recipe-page">
-      <h1>{recipe.title}</h1>
+      <h2 className="title-recipe">{recipe.title}</h2>
       <div className="view-buttons">
         <button
           className={`filter-button ${view === "ingredients" ? "active" : ""}`}
@@ -87,32 +87,39 @@ const Recipes = () => {
       </div>
       <div className="recipe-time">
         <p>
-          Prep: {recipe.prepTime} Cook: {recipe.cookTime}
+          Prep: {recipe.prepTime} | Cook: {recipe.cookTime}
         </p>
       </div>
       {view === "ingredients" && (
         <div className="ingredients-list">
           {recipe.ingredients &&
             recipe.ingredients.map((ingredient, index) => (
-              <div key={index} className="ingredient">
-                <img
-                  src={ingredient.image}
-                  alt={ingredient.name}
-                  className="ingredient-image"
-                />
-                <p className="ingredient-name">{ingredient.name}</p>
-              </div>
+              // <div key={index} className="ingredient">
+              //   <img
+              //     src={ingredient.image}
+              //     alt={ingredient.name}
+              //     className="ingredient-image"
+              //   />
+              //   <p className="ingredient-name">{ingredient.name}</p>
+              // </div>
+              <img
+                src="/images/meal-plan/ingredients.png"
+                alt="ingredients"
+                className="ingredients-pic"
+              />
             ))}
         </div>
       )}
+
       {view === "method" && (
-        <div className="method-list">
+        <div className="method-list steps-container">
           {recipe.method &&
             recipe.method.map((step, index) => (
-              <div key={index} className="method-step">
-                <h3>
-                  {index + 1}. {step}
-                </h3>
+              <div key={index}>
+                <div className="step">
+                  <h2>Step {index + 1}</h2>
+                  <p className="step-text">{step}</p>
+                </div>
               </div>
             ))}
         </div>

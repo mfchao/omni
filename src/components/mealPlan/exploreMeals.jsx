@@ -5,62 +5,49 @@ const posts = {
   "Main Dishes": [
     {
       title: "Creamy Cajun Chicken Pasta",
-      image: "/images/meal-plan/pasta.jpg",
+      image: "/images/meal-plan/pasta.png",
       time: "30min",
       ingredients: 10,
     },
     {
       title: "Chicken Taco Lettuce Wraps",
-      image: "/images/meal-plan/pasta.jpg",
+      image: "/images/meal-plan/lettuce.png",
       time: "30min",
       ingredients: 15,
     },
     {
       title: "5 Minute Mediterranean Bowl",
-      image: "/images/meal-plan/pasta.jpg",
+      image: "/images/meal-plan/meditteranean.png",
       time: "5min",
       ingredients: 7,
     },
   ],
   "Side Dishes": [
     {
-      title: "10 Minute Mediterranean Bowl",
-      image: "/images/meal-plan/pasta.jpg",
-      time: "5min",
-      ingredients: 7,
+      title: "Sweet Potato Fries",
+      image: "/images/meal-plan/potato.jpg",
+      time: "30min",
+      ingredients: 4,
     },
     {
-      title: "5 Minute Mediterranean Bowl",
-      image: "/images/meal-plan/pasta.jpg",
-      time: "5min",
-      ingredients: 7,
-    },
-
-    {
-      title: "5 Minute Mediterranean Bowl",
-      image: "/images/meal-plan/pasta.jpg",
-      time: "5min",
+      title: "10 Minute Braised Celery",
+      image: "/images/meal-plan/celery.jpg",
+      time: "10min",
       ingredients: 7,
     },
   ],
   Desserts: [
     {
-      title: " Mediterranean Bowl",
-      image: "/images/meal-plan/pasta.jpg",
-      time: "5min",
-      ingredients: 7,
+      title: " 5 Ingredient Brwonies",
+      image: "/images/meal-plan/brownie.jpg",
+      time: "20min",
+      ingredients: 5,
     },
     {
-      title: "5 Minute Mediterranean Bowl",
-      image: "/images/meal-plan/pasta.jpg",
-      time: "5min",
-      ingredients: 7,
-    },
-    {
-      title: "5 Minute Mediterranean Bowl",
-      image: "/images/meal-plan/pasta.jpg",
-      time: "5min",
-      ingredients: 7,
+      title: "Strawberry Cake",
+      image: "/images/meal-plan/cake.jpg",
+      time: "30min",
+      ingredients: 15,
     },
   ],
 };
@@ -89,13 +76,13 @@ const MealPlan = () => {
             to={`/recipe/${encodeURIComponent(post.title)}`}
             className="post-link"
           >
-            <div key={index} className="post">
-              <img src={post.image} alt={post.title} className="post-image" />
-              <div className="post-info">
-                <h2 className="post-title">{post.title}</h2>
-                <h4 className="post-time">
+            <div className="post-section">
+              <img src={post.image} alt={post.title} className="recipe-image" />
+              <div className="post-overlay">
+                <div className="highlight">
                   {post.ingredients} Ingredients, {post.time}
-                </h4>
+                </div>
+                <div className="title">{post.title}</div>
               </div>
             </div>
           </Link>
