@@ -18,7 +18,7 @@ import Calendar from "./components/calendar/Calendar";
 
 function App() {
   const [isTransitioning, setIsTransitioning] = useState(false);
-  const [sidebarWidth, setSidebarWidth] = useState(300);
+  const [sidebarWidth, setSidebarWidth] = useState(450);
   const [topbarHeight, setTopbarHeight] = useState(200);
   const [isResizing, setIsResizing] = useState(false);
   const [resizingDirection, setResizingDirection] = useState(null);
