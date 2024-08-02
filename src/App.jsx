@@ -20,6 +20,7 @@ import RecipesPage from "./components/fridgeContents/RecipesPage";
 import SpeechRecognition, {
   useSpeechRecognition,
 } from "react-speech-recognition/lib/SpeechRecognition";
+import AnimationLayout from "./components/homePage/animation";
 
 function App() {
   const [isTransitioning, setIsTransitioning] = useState(false);
@@ -36,7 +37,7 @@ function App() {
       callback: (redirectPage) => setRedirectUrl(redirectPage),
     },
   ];
-  
+
   useEffect(() => {
     SpeechRecognition.startListening({ continuous: true });
 
@@ -180,6 +181,7 @@ function App() {
             )}
 
             <Routes>
+            <Route element={<AnimationLayout />}>
               <Route
                 exact
                 path="/"
@@ -196,6 +198,7 @@ function App() {
               <Route path="/memos" element={<MemoBoard />} />
               <Route path="/calendar" element={<Calendar />} />
               <Route path="/recipes" element={<RecipesPage />} />
+              </Route>
             </Routes>
           </div>
         </div>
