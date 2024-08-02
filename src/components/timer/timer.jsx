@@ -31,7 +31,7 @@ const Timer = ({ initialTime, title, onDelete, isRunning, setIsRunning }) => {
     return `${minutes}:${remainingSeconds < 10 ? "0" : ""}${remainingSeconds}`;
   };
 
-  const radius = 90;
+  const radius = 150;
   const circumference = 2 * Math.PI * radius;
   const strokeDashoffset = circumference - (time / initialTime) * circumference;
 
@@ -46,42 +46,42 @@ const Timer = ({ initialTime, title, onDelete, isRunning, setIsRunning }) => {
   return (
     <div className="timer">
       <div className="timer-circle">
-        <svg width="200" height="200">
+        <svg width="340" height="340">
           <circle
-            cx="100"
-            cy="100"
-            r={83}
+            cx="170"
+            cy="170"
+            r={135}
             stroke="#4A4A4A"
-            strokeWidth="1"
+            strokeWidth="2"
             fill="none"
           />
           <circle
-            cx="100"
-            cy="100"
-            r={90}
+            cx="170"
+            cy="170"
+            r={150}
             stroke="#151515"
-            strokeWidth="9"
+            strokeWidth="20"
             fill="none"
           />
           <circle
-            cx="100"
-            cy="100"
-            r={97}
+            cx="170"
+            cy="170"
+            r={165}
             stroke="#4A4A4A"
-            strokeWidth="1"
+            strokeWidth="2"
             fill="none"
           />
           <circle
-            cx="100"
-            cy="100"
-            r={radius}
+            cx="170"
+            cy="170"
+            r={150}
             stroke="#FF5454"
             fill="none"
-            strokeWidth="15"
+            strokeWidth="30"
             strokeDasharray={circumference}
             strokeDashoffset={strokeDashoffset}
             style={{ transition: "stroke-dasharray 1s linear" }}
-            transform="rotate(-90 100 100)"
+            transform="rotate(-90 170 170)"
           />
         </svg>
         <div className="timer-content">

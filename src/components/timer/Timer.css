@@ -6,8 +6,8 @@
 }
 
 .timer-circle {
-  width: 200px;
-  height: 200px;
+  width: 350px;
+  height: 350px;
   display: flex;
   justify-content: center;
   align-items: center;
@@ -21,30 +21,33 @@
 }
 
 .add-timer-btn {
-  width: 4em;
+  width: 6em;
   position: fixed;
-  bottom: 210px;
-  right: 250px;
+  bottom: 120px;
+  right: 150px;
 }
 
 .x {
-  width: 30px;
+  width: 45px;
   margin-left: 5em;
 }
 
 .play-pause {
-  width: 30px;
+  width: 45px;
 }
 
-.tiemr-title {
-  font-size: 1.2rem;
-  margin-bottom: 10px;
+.timer-time-top {
+  font-size: 1.5em;
+}
+
+.timer-title {
+  font-size: 2rem;
   font-weight: lighter;
 }
 
 .timer-time {
-  font-size: 2.2rem;
-  margin: 0.2em;
+  font-size: 5rem;
+  margin: 0.1em;
   font-weight: bold;
 }
 

@@ -162,7 +162,8 @@ const recipes = {
       "Stir fry with cajun seasoning until brown.",
       "Serve over lettuce and enjoy!",
     ],
-  },"5 Minute Mediterranean Bowl": {
+  },
+  "5 Minute Mediterranean Bowl": {
     title: "5 Minute Mediterranean Bowl",
     prepTime: "2min",
     cookTime: "5min",
@@ -215,7 +216,8 @@ const recipes = {
       "Stir fry with cajun seasoning until brown.",
       "Serve over lettuce and enjoy!",
     ],
-  },"Sweet Potato Fries": {
+  },
+  "Sweet Potato Fries": {
     title: "Sweet Potato Fries",
     prepTime: "10min",
     cookTime: "30min",
@@ -267,7 +269,8 @@ const recipes = {
       "Cook in oven until brown and crispy",
       "Serve with ketchup and enjoy!",
     ],
-  },"10 Minute Braised Celery": {
+  },
+  "10 Minute Braised Celery": {
     title: "10 Minute Braised Celery",
     prepTime: "5min",
     cookTime: "10min",
@@ -319,7 +322,8 @@ const recipes = {
       "Cook in oven until brown and crispy",
       "Serve with ketchup and enjoy!",
     ],
-  },"Brownies": {
+  },
+  Brownies: {
     title: "Brownies",
     prepTime: "5min",
     cookTime: "10min",
@@ -371,7 +375,8 @@ const recipes = {
       "Cook in oven until brown and crispy",
       "Serve with powdered sugar and enjoy!",
     ],
-  },"Strawberry Cake": {
+  },
+  "Strawberry Cake": {
     title: "Strawberry Cake",
     prepTime: "20min",
     cookTime: "40min",
@@ -459,7 +464,7 @@ const Recipes = () => {
       </div>
       {view === "ingredients" && (
         <div className="ingredients-list">
-          {recipe.ingredients &&
+          {/* {recipe.ingredients &&
             recipe.ingredients.map((ingredient, index) => (
               // <div key={index} className="ingredient">
               //   <img
@@ -469,31 +474,30 @@ const Recipes = () => {
               //   />
               //   <p className="ingredient-name">{ingredient.name}</p>
               // </div>
-              <img
-                src="/images/meal-plan/ingredients.png"
-                alt="ingredients"
-                className="ingredients-pic"
-              />
-            ))}
+              
+            ))} */}
+          <img
+            src="/images/meal-plan/ingredients.png"
+            alt="ingredients"
+            className="ingredients-pic"
+          />
         </div>
       )}
-<div className="s-posts-container">
-      {view === "method" && (
-        
-        <div className="s-post-section ">
-          {recipe.method &&
-            recipe.method.map((step, index) => (
-              <div key={index}>
-                <div className="step">
-                  <h2>Step {index + 1}</h2>
-                  <p className="step-text">{step}</p>
+      <div className="s-posts-container">
+        {view === "method" && (
+          <div className="s-post-section ">
+            {recipe.method &&
+              recipe.method.map((step, index) => (
+                <div key={index}>
+                  <div className="step">
+                    <h2>Step {index + 1}</h2>
+                    <p className="step-text">{step}</p>
+                  </div>
                 </div>
-              </div>
-            ))}
-        </div>
-        
-      )}
-    </div>
+              ))}
+          </div>
+        )}
+      </div>
     </div>
   );
 };

@@ -32,10 +32,6 @@ function App() {
   const { transcript, resetTranscript } = useSpeechRecognition();
   const [filter, setFilter] = useState("all");
 
- 
-
-  
-
   useEffect(() => {
     SpeechRecognition.startListening({ continuous: true });
 
@@ -45,14 +41,11 @@ function App() {
   }, []);
 
   useEffect(() => {
-    if (
-      transcript.toLowerCase().includes("expiring")
-    ) {
-      setFilter("expiring")
+    if (transcript.toLowerCase().includes("expiring")) {
+      setFilter("expiring");
       resetTranscript();
     }
   }, [transcript, resetTranscript]);
-
 
   useEffect(() => {
     if (transcript.toLowerCase().includes("hey")) {
@@ -66,15 +59,11 @@ function App() {
   }, [transcript, resetTranscript]);
 
   // console.log(transcript);
-  
+
   if (!SpeechRecognition.browserSupportsSpeechRecognition) {
     console.log("Speech Recognition not supported in this browser");
     return null;
   }
-
- 
-
-
 
   const startResizing = (clientX, clientY, direction) => {
     setIsResizing(true);
@@ -143,8 +132,8 @@ function App() {
 
         {/* <HashRouter> */}
         <div className="display">
-          <div className="app-content">
-            {/* <div className="top-bar-black" style={{ height: topbarHeight }}>
+          {/* <div className="app-content"> */}
+          {/* <div className="top-bar-black" style={{ height: topbarHeight }}>
               <div
                 className="resize-handle-top"
                 onMouseDown={(e) =>
@@ -160,15 +149,15 @@ function App() {
               ></div>
               
             </div> */}
-            <SideMenu />
+          <SideMenu />
 
-            {showOverlay && (
-              <div className="ai-overlay">
-                <img src="/nav-icons/stars.gif" alt="animation" />
-              </div>
-            )}
+          {showOverlay && (
+            <div className="ai-overlay">
+              <img src="/nav-icons/stars.gif" alt="animation" />
+            </div>
+          )}
 
-            <Routes>
+          <Routes>
             <Route element={<AnimationLayout />}>
               <Route
                 exact
@@ -179,19 +168,24 @@ function App() {
                 path="/home"
                 element={<HomePage isTransitioning={isTransitioning} />}
               />
-              <Route path="/fridge-contents" element={<FridgeContents filter={filter} setFilter={setFilter}/>} />
+              <Route
+                path="/fridge-contents"
+                element={
+                  <FridgeContents filter={filter} setFilter={setFilter} />
+                }
+              />
               <Route path="/meal-plan" element={<MealPlan />} />
               <Route path="/recipe/:title" element={<Recipes />} />
               <Route path="/timer" element={<TimerDashboard />} />
               <Route path="/memos" element={<MemoBoard />} />
               <Route path="/calendar" element={<Calendar />} />
               <Route path="/recipes" element={<RecipesPage />} />
-              </Route>
-            </Routes>
-          </div>
+            </Route>
+          </Routes>
         </div>
-        {/* </HashRouter> */}
       </div>
+      {/* </HashRouter> */}
+      {/* </div> */}
     </>
   );
 }

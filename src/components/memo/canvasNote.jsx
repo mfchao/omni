@@ -59,7 +59,7 @@ function CanvasNote({ onAdd, onClose }) {
     if (placeholderName) {
       const canvas = canvasRef.current;
       const content = canvas ? canvas.toDataURL() : "";
-      console.log(canvas.toDataURL())
+      console.log(canvas.toDataURL());
       onAdd(new Date().toISOString().split("T")[0], placeholderName, content);
       onClose();
     } else {
@@ -73,7 +73,7 @@ function CanvasNote({ onAdd, onClose }) {
         <canvas
           ref={canvasRef}
           width={window.innerWidth}
-          height={window.innerHeight - 900} // Adjust for height
+          height={window.innerHeight - 500} // Adjust for height
           className="canvas"
           onMouseDown={startDrawing}
           onMouseMove={draw}
