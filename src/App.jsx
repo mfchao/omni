@@ -31,12 +31,11 @@ function App() {
   const [showOverlay, setShowOverlay] = useState(false);
   const { transcript, resetTranscript } = useSpeechRecognition();
   const [navigateToFridge, setNavigateToFridge] = useState(false);
-  const commands = [
-    {
-      command: ["Go to *", "Open *"],
-      callback: (redirectPage) => setRedirectUrl(redirectPage),
-    },
-  ];
+  const [filter, setFilter] = useState("all");
+
+ 
+
+  
 
   useEffect(() => {
     SpeechRecognition.startListening({ continuous: true });
@@ -46,7 +45,13 @@ function App() {
     };
   }, []);
 
-  // const { transcript } = useSpeechRecognition({ commands });
+  if (
+    transcript.toLowerCase().includes("expiring")
+  ) {
+    setFilter('expiring');
+    resetTranscript();
+  }
+
 
   useEffect(() => {
     if (transcript.toLowerCase().includes("hey")) {
@@ -60,33 +65,15 @@ function App() {
   }, [transcript, resetTranscript]);
 
   // console.log(transcript);
-  const [redirectUrl, setRedirectUrl] = useState("");
-
-  const pages = ["home", "cover"];
-  const urls = {
-    home: "/",
-    cover: "/cover",
-  };
-
+  
   if (!SpeechRecognition.browserSupportsSpeechRecognition) {
     console.log("Speech Recognition not supported in this browser");
     return null;
   }
 
-  // if (navigateToFridge) {
-  //   return <Navigate to="/fridge-contents" />;
-  // }
+ 
 
-  let Redirect;
 
-  if (redirectUrl) {
-    if (pages.includes(redirectUrl)) {
-      Redirect = <Navigate to={urls[redirectUrl]} replace={true} />;
-      console.log("redirected to " + urls[redirectUrl]);
-    } else {
-      Redirect = <p>Could not find page: {redirectUrl}</p>;
-    }
-  }
 
   const startResizing = (clientX, clientY, direction) => {
     setIsResizing(true);
@@ -191,7 +178,7 @@ function App() {
                 path="/home"
                 element={<HomePage isTransitioning={isTransitioning} />}
               />
-              <Route path="/fridge-contents" element={<FridgeContents />} />
+              <Route path="/fridge-contents" element={<FridgeContents filter={filter} setFilter={setFilter}/>} />
               <Route path="/meal-plan" element={<MealPlan />} />
               <Route path="/recipe/:title" element={<Recipes />} />
               <Route path="/timer" element={<TimerDashboard />} />

@@ -58,9 +58,16 @@ const HomePage = ({ isTransitioning }) => {
   useEffect(() => {
     // fridge
     if (
-      transcript.toLowerCase().includes("fridge") ||
+      transcript.toLowerCase().includes("fridge")
+    ) {
+      setNavigateToFridge(true);
+      resetTranscript();
+    }
+
+    if (
       transcript.toLowerCase().includes("expiring")
     ) {
+      
       setNavigateToFridge(true);
       resetTranscript();
     }

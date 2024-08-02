@@ -61,8 +61,7 @@ const foods = [
   },
 ];
 
-function FridgeContents() {
-  const [filter, setFilter] = useState("all");
+const FridgeContents =({filter, setFilter}) => {
   const navigate = useNavigate();
   const { transcript, resetTranscript } = useSpeechRecognition();
 
