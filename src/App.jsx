@@ -30,7 +30,6 @@ function App() {
   const [resizingDirection, setResizingDirection] = useState(null);
   const [showOverlay, setShowOverlay] = useState(false);
   const { transcript, resetTranscript } = useSpeechRecognition();
-  const [navigateToFridge, setNavigateToFridge] = useState(false);
   const [filter, setFilter] = useState("all");
 
  
@@ -45,12 +44,14 @@ function App() {
     };
   }, []);
 
-  if (
-    transcript.toLowerCase().includes("expiring")
-  ) {
-    setFilter('expiring');
-    resetTranscript();
-  }
+  useEffect(() => {
+    if (
+      transcript.toLowerCase().includes("expiring")
+    ) {
+      setFilter("expiring")
+      resetTranscript();
+    }
+  }, [transcript, resetTranscript]);
 
 
   useEffect(() => {

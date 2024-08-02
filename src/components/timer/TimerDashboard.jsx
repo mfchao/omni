@@ -7,6 +7,8 @@ import SpeechRecognition, {
 } from "react-speech-recognition/lib/SpeechRecognition";
 
 const TimerDashboard = () => {
+  const [isRunning, setIsRunning] = useState(false);
+
   const [timers, setTimers] = useState([
     { id: 1, intialTime: 180, title: "Roast" },
     // { id: 2, intialTime: 1200, title: "Vegetables" },
@@ -32,8 +34,9 @@ const TimerDashboard = () => {
 
   useEffect(() => {
     // set timer with voice
-    if (transcript.toLowerCase().includes("set an oven timer for 30 seconds")) {
+    if (transcript.toLowerCase().includes("seconds")) {
       addTimer("oven", 30);
+      setIsRunning(true);
       resetTranscript();
     }
   }, [transcript, resetTranscript]);
@@ -64,6 +67,9 @@ const TimerDashboard = () => {
             initialTime={timer.intialTime}
             title={timer.title}
             onDelete={deleteTimer}
+            isRunning= {isRunning} 
+            setIsRunning={setIsRunning}
+
           />
         ))}
       </div>

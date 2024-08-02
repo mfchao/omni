@@ -43,7 +43,7 @@ const HomePage = ({ isTransitioning }) => {
   const [navigateToCalendar, setNavigateToCalendar] = useState(false);
   const [navigateToChicken, setNavigateToChicken] = useState(false);
 
-
+  const navigate = useNavigate();
 
 
   useEffect(() => {
@@ -67,7 +67,7 @@ const HomePage = ({ isTransitioning }) => {
     if (
       transcript.toLowerCase().includes("expiring")
     ) {
-      
+
       setNavigateToFridge(true);
       resetTranscript();
     }
@@ -117,24 +117,24 @@ const HomePage = ({ isTransitioning }) => {
 
   }, [transcript, resetTranscript]);
   if (navigateToFridge) {
-    return <Navigate to="/fridge-contents" />;
+    navigate("/fridge-contents");
   }
   if (navigateToMealPlanner) {
-    return <Navigate to="/meal-plan" />;
+    navigate("/meal-plan");
   }
   if (navigateToTimer) {
-    return <Navigate to="/timer" />;
+    navigate("/timer");
   }
   if (navigateToMemo) {
-    return <Navigate to="/memos" />;
+    navigate("/memos");
   }
 
   if (navigateToCalendar) {
-    return <Navigate to="/calendar" />;
+    navigate("/calendar");
   }
 
   if (navigateToChicken) {
-    return <Navigate to="/meal-plan/recipe/Creamy%20Cajun%20Chicken%20Pasta" />;
+    navigate("/meal-plan/recipe/Creamy%20Cajun%20Chicken%20Pasta");
   }
   
 

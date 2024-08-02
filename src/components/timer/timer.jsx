@@ -1,9 +1,8 @@
 import { useState, useEffect } from "react";
 import "./Timer.css";
 
-const Timer = ({ initialTime, title, onDelete }) => {
+const Timer = ({ initialTime, title, onDelete, isRunning, setIsRunning }) => {
   const [time, setTime] = useState(initialTime);
-  const [isRunning, setIsRunning] = useState(false);
   const [intervalId, setIntervalId] = useState(null);
 
   useEffect(() => {

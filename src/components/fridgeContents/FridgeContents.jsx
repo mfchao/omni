@@ -83,15 +83,14 @@ const FridgeContents =({filter, setFilter}) => {
   // console.log(transcript);
 
   useEffect(() => {
-    // fridge
     if (
-      transcript.toLowerCase().includes("expiring")
+      transcript.toLowerCase().includes("I make")
     ) {
-      setFilter("expiring")
+      navigate("/recipes");
       resetTranscript();
     }
-
   }, [transcript, resetTranscript]);
+
  
 
   return (
