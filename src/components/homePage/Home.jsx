@@ -45,7 +45,6 @@ const HomePage = ({ isTransitioning }) => {
 
   const navigate = useNavigate();
 
-
   useEffect(() => {
     SpeechRecognition.startListening({ continuous: true });
 
@@ -57,17 +56,12 @@ const HomePage = ({ isTransitioning }) => {
 
   useEffect(() => {
     // fridge
-    if (
-      transcript.toLowerCase().includes("fridge")
-    ) {
+    if (transcript.toLowerCase().includes("fridge")) {
       setNavigateToFridge(true);
       resetTranscript();
     }
 
-    if (
-      transcript.toLowerCase().includes("expiring")
-    ) {
-
+    if (transcript.toLowerCase().includes("expiring")) {
       setNavigateToFridge(true);
       resetTranscript();
     }
@@ -75,46 +69,36 @@ const HomePage = ({ isTransitioning }) => {
     // meal planner
     if (
       transcript.toLowerCase().includes("recipes") ||
-      transcript.toLowerCase().includes("chicken")
+      transcript.toLowerCase().includes("chicken") ||
+      transcript.toLowerCase().includes("recipe")
     ) {
       setNavigateToMealPlanner(true);
       resetTranscript();
     }
 
     //recipe
-    if (
-      transcript.toLowerCase().includes("chicken")
-    ) {
+    if (transcript.toLowerCase().includes("chicken")) {
       setNavigateToChicken(true);
       resetTranscript();
     }
 
     // timer
-    if (
-      transcript.toLowerCase().includes("timer")
-    ) {
+    if (transcript.toLowerCase().includes("timer")) {
       setNavigateToTimer(true);
       resetTranscript();
     }
 
     // Memo
-    if (
-      transcript.toLowerCase().includes("memo")
-    ) {
+    if (transcript.toLowerCase().includes("memo")) {
       setNavigateToMemo(true);
       resetTranscript();
     }
 
     // Calendar
-    if (
-      transcript.toLowerCase().includes("events")
-    ) {
+    if (transcript.toLowerCase().includes("events")) {
       setNavigateToCalendar(true);
       resetTranscript();
     }
-
-
-
   }, [transcript, resetTranscript]);
   if (navigateToFridge) {
     navigate("/fridge-contents");
@@ -136,7 +120,6 @@ const HomePage = ({ isTransitioning }) => {
   if (navigateToChicken) {
     navigate("/meal-plan/recipe/Creamy%20Cajun%20Chicken%20Pasta");
   }
-  
 
   return (
     <div className={`home-layout ${isTransitioning ? "transitioning" : ""}`}>
